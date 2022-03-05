@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "326938335342",
+    "project_id": "planty-e1794",
+    "storage_bucket": "planty-e1794.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:326938335342:android:5de1145781ab685c46ae7f",
+        "android_client_info": {
+          "package_name": "com.example.planty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "326938335342-oteor15h463f7uns9bglilj4aibfmfk1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLyxKGKlGl1hMhRvdcYwX6X4Uo2sjQMNM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "326938335342-oteor15h463f7uns9bglilj4aibfmfk1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
