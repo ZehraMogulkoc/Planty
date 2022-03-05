@@ -28,13 +28,13 @@ class ProductItem extends StatelessWidget {
           ),
         ),
         footer: GridTileBar(
-          backgroundColor: Colors.orangeAccent,
+          backgroundColor: Colors.amber.withOpacity(0.75),
           leading: Consumer<Product>(
             builder: (ctx, product, _) => IconButton(
               icon: Icon(
                 product.isFavorite ? Icons.favorite : Icons.favorite_border,
               ),
-              color: Theme.of(context).colorScheme.secondary,
+              color: Colors.white,
               onPressed: () {
                 product.toggleFavoriteStatus();
               },
@@ -45,7 +45,9 @@ class ProductItem extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           trailing: IconButton(
-            icon: const Icon(
+            disabledColor: Colors.white,
+            icon:  Icon(
+
               Icons.shopping_cart,
             ),
             onPressed: () {
@@ -66,7 +68,7 @@ class ProductItem extends StatelessWidget {
                 ),
               );
             },
-            color: Theme.of(context).colorScheme.secondary,
+            color: Colors.white,
           ),
         ),
       ),

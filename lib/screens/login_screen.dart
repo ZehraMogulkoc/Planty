@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:planty/screens/selling_page.dart';
+import '../planty_main_page.dart';
 import 'signup_screen.dart';
 import 'package:planty/widgets/container.dart';
 class LoginPage extends StatefulWidget {
@@ -73,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
     if (user != null) {
     setState(() {
     Navigator.push(context,
-    MaterialPageRoute(builder: (context) => MyProducts()));
+    MaterialPageRoute(builder: (context) => MainPage()));
     });
     } else {
     Fluttertoast.showToast(

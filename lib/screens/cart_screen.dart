@@ -15,6 +15,7 @@ class CartScreen extends StatelessWidget {
     final cart = Provider.of<Cart>(context);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.green,
         title: const Text('Sepetim'),
       ),
       body: Column(
@@ -39,10 +40,10 @@ class CartScreen extends StatelessWidget {
                         Theme.of(context).primaryTextTheme.headline6!.color,
                       ),
                     ),
-                    backgroundColor: Theme.of(context).primaryColor,
+                    backgroundColor: Colors.green,
                   ),
                   TextButton(
-                    child: const Text('Şimdi sipariş et'),
+                    child: const Text('Şimdi sipariş et',style: TextStyle(color: Colors.green)),
                     onPressed: () {
                       Provider.of<Orders>(context, listen: false).addOrder(
                         cart.items.values.toList(),

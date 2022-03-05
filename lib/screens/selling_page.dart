@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:planty/widgets/app_drawer.dart';
 import 'package:provider/provider.dart';
 
 
@@ -39,50 +40,7 @@ class _MainViewState extends State<MainView> {
     final user=FirebaseAuth.instance.currentUser;
     var currentUser=FirebaseFirestore.instance.collection('Data').doc(user?.email);
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            SizedBox(
-              height: 70,
-              child: DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.greenAccent,
-                ),
-                child: Center(child:
-                StreamBuilder(stream: currentUser.snapshots(),builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-    if(snapshot.hasData){
-    return Text("Merhaba  ${snapshot.data.data()['Name']}!",style: TextStyle(
-    color: Colors.white,
-    fontSize: 24,
-    fontWeight: FontWeight.normal)); }
-    else{
-    return CircularProgressIndicator();
-    }}
-    ),),
-              ),
-            ),
-            ListTile(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => AddingNewPlant()))
-                    .then((value) => setState(() {
-                  Navigator.of(context).pop();
-                }));
-              },
-              leading: Icon(
-                Icons.add_box_rounded,
-                color: Colors.grey,
-              ),
-              title: Text(
-                'Yeni Ürün Sat',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
-              ),
-            ),
-          ],
-        ),
-      ),
+      drawer: AppDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.green,
         title: Text(
@@ -513,7 +471,6 @@ class _AddingNewPlantState extends State<AddingNewPlant> {
                       child: Focus(
                         onFocusChange: (hasFocus) {
                           if (!hasFocus) {
-                            print('HelloMello');
                             setState(() {
                               pictureUrlLink = imageUrlCtr.text;
                             });
@@ -545,7 +502,7 @@ class _AddingNewPlantState extends State<AddingNewPlant> {
 }
 
 class Plants with ChangeNotifier {
-  String typeOfGame = 'Hepsi';
+  String typeOfPlant = 'All';
   final List<Plant> _items = [
     Plant(
       cost: '80 TL',
@@ -587,16 +544,16 @@ class Plants with ChangeNotifier {
   ];
 
   List<Plant> currentList() {
-    if (typeOfGame == 'All') {
+    if (typeOfPlant == 'All') {
       return _items;
     }
     List<Plant> newList =
-    _items.where((game) => game.genre == typeOfGame).toList();
+    _items.where((game) => game.genre == typeOfPlant).toList();
     return newList;
   }
 
   void changeTypeOfGameInMain(String currentType) {
-    typeOfGame = currentType;
+    typeOfPlant = currentType;
     notifyListeners();
   }
 

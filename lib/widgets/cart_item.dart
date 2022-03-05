@@ -19,7 +19,7 @@ class CartItem extends StatelessWidget {
     return Dismissible(
       key: ValueKey(id),
       background: Container(
-        color: Theme.of(context).errorColor,
+        color: Colors.green,
         child: const Icon(
           Icons.delete,
           color: Colors.white,
@@ -70,10 +70,11 @@ class CartItem extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           child: ListTile(
             leading: CircleAvatar(
+              backgroundColor:  Colors.amber.withOpacity(0.75),
               child: Padding(
                 padding: const EdgeInsets.all(5),
                 child: FittedBox(
-                  child: Text('$price'),
+                  child: Text('$price',style: TextStyle(color: Colors.green),),
                 ),
               ),
             ),
