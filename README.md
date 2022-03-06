@@ -1,6 +1,7 @@
 # PLANTY
 
 A new Flutter project.
+![Screenshot_1646591067]()
 
 Planty is a mobile application designed to inform producers about sustainable agriculture, to interact directly between producers and consumers, and to make organic products easily accessible to everyone.
 
@@ -19,7 +20,7 @@ Planty is a mobile application designed to inform producers about sustainable ag
 </p>
 <p align ="center">
 <img src="https://user-images.githubusercontent.com/87859856/156936817-17c6f6e3-7e58-481b-815b-8749e2f90d51.png" alt="feed example" width="210">
-<img src="https://user-images.githubusercontent.com/87859856/156936889-dcd415d5-da89-4725-9b27-67aef26e2974.png" alt="feed example" width="206">
+<img src="https://user-images.githubusercontent.com/87859856/156937309-807552ee-f211-422c-a548-108e2e86cd74.png" alt="feed example" width="206">
 <img src="https://user-images.githubusercontent.com/87859856/156936989-de8fc87a-bd82-487c-9414-ee7b313fa9c6.png" alt="feed example" width="210">
 </p>
 <p align = "center">
