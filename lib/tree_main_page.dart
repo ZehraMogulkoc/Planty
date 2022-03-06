@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class TreeMainPage extends StatefulWidget {
   const TreeMainPage({Key? key}) : super(key: key);
 
@@ -12,29 +11,31 @@ class _TreeMainPageState extends State<TreeMainPage> {
   final List<Tree> _items = [
     Tree(
       id: '1',
-      title: 'Dauntless',
-      thumbnailUrl: 'https://www.freetogame.com/g/1/thumbnail.jpg',
+      title: 'Elma',
+      thumbnailUrl:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Elma.jpg/220px-Elma.jpg',
       shortDescription:
-      'A free-to-play, co-op action RPG with gameplay similar to Monster Hunter.',
-      genre: 'MMORPG',
+          '-36 °C soğuğa dayanabilir. Kurak ve sıcaktan hoşlanmaz. Toprağı tınlı, tınlı-kumlu, en az 1 m derinlikte olmalıdır. pH değeri 6-7 olan toprağı sever. Taban suyu 1 m den yakın olmamalıdır. Taşlı ve kireçli toprağı sevmez.',
+      genre: 'tree',
     ),
     Tree(
       id: '2',
-      title: 'World of Tanks',
-      thumbnailUrl: 'https://www.freetogame.com/g/2/thumbnail.jpg',
+      title: 'Ceviz',
+      thumbnailUrl:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Juglans_regia.jpg/220px-Juglans_regia.jpg',
       shortDescription:
-      'If you like blowing up tanks, with a quick and intense game style you will love this game!',
-      genre: 'Shooter',
+          'Ceviz ağacı pH değeri 5 ile 8 arasınada olan ve süzek topraklarda yetişir.',
+      genre: 'tree',
     ),
     Tree(
       id: '3',
-      title: 'Warframe',
-      thumbnailUrl: 'https://www.freetogame.com/g/3/thumbnail.jpg',
+      title: 'Erik',
+      thumbnailUrl:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Prunus_maritima.jpg/245px-Prunus_maritima.jpg',
       shortDescription:
-      'A cooperative free-to-play third person online action shooter set in an stunning sci-fi world.',
-      genre: 'Shooter',
+          'Türkiye Doğu Anadolu Bölgesinde yüksek yayla mıntıkası ile, Güneydoğu Anadolu Bölgesi  kurak ve çok sıcak bir kısım yerleri hariç her tarafta yetişir.',
+      genre: 'tree',
     ),
-
   ];
   List<Tree> _found = [];
   @override
@@ -42,13 +43,14 @@ class _TreeMainPageState extends State<TreeMainPage> {
     _found = _items;
     super.initState();
   }
+
   void _runFilter(String enteredKeyword) {
     List<Tree> results = [];
     if (enteredKeyword.isEmpty) {
       results = _items;
     } else {
-      results = _items.where(
-              (user) =>
+      results = _items
+          .where((user) =>
               user.title.toLowerCase().contains(enteredKeyword.toLowerCase()))
           .toList();
     }
@@ -74,7 +76,6 @@ class _TreeMainPageState extends State<TreeMainPage> {
                     labelText: 'Search', suffixIcon: Icon(Icons.search)),
               ),
               decoration: const BoxDecoration(
-
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(15),
                     bottomLeft: Radius.circular(15),
@@ -89,25 +90,31 @@ class _TreeMainPageState extends State<TreeMainPage> {
             Expanded(
               child: _found.isNotEmpty
                   ? ListView.builder(
-                itemCount: _found.length,
-                itemBuilder: (context, index) => Card(
-                  key: ValueKey(_found[index].id),
-                  color: Colors.amberAccent,
-                  elevation: 4,
-                  margin: const EdgeInsets.symmetric(vertical: 10),
-                  child: ListTile(
-                    leading: Text(
-                      _found[index].id.toString(),
-                      style: const TextStyle(fontSize: 24),
-                    ),
-                    title: Text(_found[index].title),
-                  ),
-                ),
-              )
+                      itemCount: _found.length,
+                      itemBuilder: (context, index) => Card(
+                        key: ValueKey(_found[index].id),
+                        color: Colors.amberAccent,
+                        elevation: 4,
+                        margin: const EdgeInsets.symmetric(vertical: 10),
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            radius: 32,
+                            backgroundImage:
+                                NetworkImage(_found[index].thumbnailUrl),
+                            child: GestureDetector(onTap: () {}),
+                          ),
+                          title: Text(_found[index].title),
+                          subtitle: Text(
+                            _found[index].shortDescription,
+                            style: const TextStyle(fontSize: 14),
+                          ),
+                        ),
+                      ),
+                    )
                   : const Text(
-                'No results found',
-                style: TextStyle(fontSize: 24),
-              ),
+                      'No results found',
+                      style: TextStyle(fontSize: 24),
+                    ),
             ),
           ],
         ),
@@ -115,6 +122,7 @@ class _TreeMainPageState extends State<TreeMainPage> {
     );
   }
 }
+
 class Tree {
   String id;
   String title;
@@ -123,10 +131,8 @@ class Tree {
   String genre;
   Tree(
       {required this.id,
-        required this.title,
-        required this.thumbnailUrl,
-        required this.shortDescription,
-        required this.genre});
+      required this.title,
+      required this.thumbnailUrl,
+      required this.shortDescription,
+      required this.genre});
 }
-
-
