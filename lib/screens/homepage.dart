@@ -1,6 +1,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:planty/screens/product_detail_screen.dart';
+import 'package:planty/screens/product_owerviev_screen.dart';
 import 'package:planty/widgets/app_drawer.dart';
 
 import '../planty_main_page.dart';
@@ -47,7 +49,8 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 20,),
             FlatButton(
-              onPressed: () {  },
+              onPressed: () {Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ProductsOverviewScreen()));  },
               color: Colors.amber.withOpacity(0.7),
               minWidth: 400,
               shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
